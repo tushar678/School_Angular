@@ -1,0 +1,250 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Add Student</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="addstudent">                          
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Student Identification" formControlName="StudentId">
+                                      <mat-error *ngIf="addstudent.get('StudentId').hasError('required')">
+                                        You must enter a Numeric ID
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                                
+                                <div class="col-md-3">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Grade</mat-label>
+                                    <mat-select formControlName="CurrentGrade">
+                                      <mat-option *ngFor="let grade of grades" [value]="grade">
+                                        {{grade}}
+                                      </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="addstudent.get('CurrentGrade').hasError('required')">
+                                      You must select a valid Grade
+                                    </mat-error> 
+                                </mat-form-field>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>Mentor</mat-label>
+                                        <mat-select formControlName="Mentor">
+                                          <mat-option *ngFor="let mentor of mentors" [value]="mentor">
+                                            {{mentor}}
+                                          </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="addstudent.get('Mentor').hasError('required')">
+                                          You must select a valid Mentor
+                                        </mat-error> 
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <mat-form-field appearance="fill">
+                                        <mat-label>School</mat-label>
+                                        <mat-select formControlName="SchoolId">
+                                          <mat-option *ngFor="let school of schoolData" [value]="school.id">
+                                            {{school.name}}
+                                          </mat-option>
+                                        </mat-select>
+                                        <mat-error *ngIf="addstudent.get('SchoolId').hasError('required')">
+                                          You must select a valid School
+                                        </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="First Name" type="text" formControlName="FirstName">
+                                    <mat-error *ngIf="addstudent.get('FirstName').hasError('required')">
+                                      You must enter a valid Name
+                                    </mat-error> 
+                                  </mat-form-field>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Middle Name" type="text" formControlName="MiddleName">
+                                      <mat-error *ngIf="addstudent.get('MiddleName').hasError('required')">
+                                        You must enter a valid Name
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-3">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Last Name" type="text" formControlName="LastName">
+                                    <mat-error *ngIf="addstudent.get('LastName').hasError('required')">
+                                      You must enter a valid Name
+                                    </mat-error> 
+                                  </mat-form-field>
+                                </div>
+
+                                <div class="col-md-3">
+                                    <mat-checkbox class="example-margin" color="primary" formControlName="AllowedToWalkHome">Allowed to walk home</mat-checkbox>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <mat-form-field appearance="fill">
+                                      <!-- <label for="birthdaytime">Birthday (date and time):</label> -->
+                                      <input matInput placeholder="DOB" type="date" formControlName="DOB">
+                                      <mat-error *ngIf="addstudent.get('DOB').hasError('required')">
+                                        You must select a valid Date
+                                      </mat-error> 
+                                    </mat-form-field> 
+                                </div>
+
+                                <div class="col-md-3">
+                                  <mat-form-field appearance="fill">
+                                    <input matInput placeholder="Age" type="number" formControlName="Age">
+                                    <mat-error *ngIf="addstudent.get('Age').hasError('required')">
+                                      You must enter a valid Age
+                                    </mat-error> 
+                                  </mat-form-field> 
+                                </div>
+
+                                <div class="col-md-3">
+                                  <mat-form-field appearance="fill">
+                                      <mat-label>Gender</mat-label>
+                                      <mat-select formControlName="Gender">
+                                        <mat-option *ngFor="let gender of gender" [value]="gender">
+                                          {{gender}}
+                                        </mat-option>
+                                      </mat-select>
+                                      <mat-error *ngIf="addstudent.get('Gender').hasError('required')">
+                                        You must select a valid Gender
+                                      </mat-error> 
+                                  </mat-form-field>
+                               </div>
+
+                               <div class="col-md-3">
+                                <mat-checkbox class="example-margin" color="primary" formControlName="StudentInProbation">Student On Probation</mat-checkbox>
+                               </div>
+                            </div>  
+                            <div class="row">   
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Address" type="text" formControlName="Address">
+                                  <mat-error *ngIf="addstudent.get('Address').hasError('required')">
+                                    You must enter your Address
+                                  </mat-error> 
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="City" type="text" formControlName="City">
+                                  <mat-error *ngIf="addstudent.get('City').hasError('required')">
+                                    You must enter a value
+                                  </mat-error> 
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="State" type="text" formControlName="State">
+                                  <mat-error *ngIf="addstudent.get('State').hasError('required')">
+                                    You must enter a value
+                                  </mat-error> 
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-2">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Zip Code" type="text" formControlName="ZipCode">
+                                  <mat-error *ngIf="addstudent.get('ZipCode').hasError('required')">
+                                    You must enter a value
+                                  </mat-error> 
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Phone" type="text" formControlName="Phone">
+                                  <mat-error *ngIf="addstudent.get('Phone').hasError('required')">
+                                    You must enter a 10 digit Number
+                                  </mat-error> 
+                                </mat-form-field>
+                              </div>
+                            </div>   
+                            <div class="row">
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Email Address" type="email" formControlName="Email">
+                                  <mat-error *ngIf="addstudent.get('Email').hasError('required')">
+                                    You must enter a valid Email
+                                  </mat-error> 
+                                </mat-form-field>
+                              </div> 
+
+                              <div class="col-md-2">
+                                <mat-checkbox class="example-margin" color="primary" formControlName="IEP">IEP</mat-checkbox>
+                              </div>
+
+                              <div class="col-md-2">
+                                <mat-checkbox class="example-margin" color="primary" formControlName="Field504">504</mat-checkbox>
+                              </div>
+
+                              <div class="col-md-2">
+                                <mat-checkbox class="example-margin" color="primary" formControlName="Reteined">Retained</mat-checkbox>
+                              </div>
+
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Retained Grade" type="text" formControlName="ReteinedReason">
+                                  <mat-error *ngIf="addstudent.get('ReteinedReason').hasError('required')">
+                                    You must enter a value
+                                  </mat-error> 
+                                </mat-form-field>
+                              </div>
+                            </div> 
+                            <div class="row">
+                              <div class="col-md-3">
+                                <mat-form-field class="example-full-width">
+                                  <input matInput placeholder="Language" type="text" formControlName="Language">
+                                  <mat-error *ngIf="addstudent.get('Language').hasError('required')">
+                                    You must enter a vlid Language
+                                  </mat-error> 
+                                </mat-form-field>
+                              </div>
+
+                              <div class="col-md-3">
+                                <mat-form-field appearance="fill">
+                                    <mat-label>Tutoring Group</mat-label>
+                                    <mat-select formControlName="TutoringGroupId">
+                                      <mat-option *ngFor="let tutoringGroup of tutoringGroupData" [value]="tutoringGroup.id">
+                                        {{tutoringGroup.name}}
+                                      </mat-option>
+                                    </mat-select>
+                                    <mat-error *ngIf="addstudent.get('TutoringGroupId').hasError('required')">
+                                      You must select a value
+                                    </mat-error> 
+                                </mat-form-field>
+                             </div>
+                            </div>   
+
+                            <div class="block">     
+                            <label>Profile Image :&nbsp;&nbsp;</label> 
+                            <img style="display: block;" width="100px" height="100px" src={{this.addstudent.value.PicFilename}}>
+                            <input type="file" class="pull-left" accept="image/*" formControlName="PicFilename" (change)="onFileChanged($event)">
+                            </div>  
+
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" [disabled]="addstudent.invalid" (click)="addnew()">Add Student</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

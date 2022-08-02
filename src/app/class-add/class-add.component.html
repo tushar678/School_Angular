@@ -1,0 +1,31 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Add New Class</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="addclass">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Class Name" formControlName="Name">
+                                      <mat-error *ngIf="addclass.get('Name').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>                 
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" [disabled]="addclass.invalid" (click)="addnewclass()">Add Class</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

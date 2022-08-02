@@ -1,0 +1,69 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Add New School</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="addnewschool">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Name" formControlName="name">
+                                      <mat-error *ngIf="addnewschool.get('name').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">    
+                                <div class="col-md-8">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Address" type="text" formControlName="address">
+                                      <mat-error *ngIf="addnewschool.get('address').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="City" type="text" formControlName="city">
+                                    <mat-error *ngIf="addnewschool.get('city').hasError('required')">
+                                      You must enter a value
+                                    </mat-error> 
+                                  </mat-form-field>
+                                </div>
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="State" type="text" formControlName="state">
+                                    <mat-error *ngIf="addnewschool.get('state').hasError('required')">
+                                      You must enter a value
+                                    </mat-error> 
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Zip Code" type="text" formControlName="zipCode">
+                                    <mat-error *ngIf="addnewschool.get('zipCode').hasError('required')">
+                                      You must enter a value
+                                    </mat-error> 
+                                  </mat-form-field>
+                                </div>
+                            </div>
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" [disabled]="addnewschool.invalid" (click)="addschool()">Add New School</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,43 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Add New Teacher</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="addnewteacher">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="First Name" formControlName="FirstName">
+                                      <mat-error *ngIf="addnewteacher.get('FirstName').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">    
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Last Name" type="text" formControlName="LastName">
+                                      <mat-error *ngIf="addnewteacher.get('LastName').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>         
+                            <br>
+                            <mat-slide-toggle color="primary" formControlName="Active">Manage Access</mat-slide-toggle>                           
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" [disabled]="addnewteacher.invalid" (click)="addteacher()">Add New Teacher</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

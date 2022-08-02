@@ -1,0 +1,51 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Add New Centre</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="addnewcentre">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Centre Name" formControlName="Name">
+                                      <mat-error *ngIf="addnewcentre.get('Name').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">    
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Open Hour" type="time" formControlName="OpenHour">
+                                      <mat-error *ngIf="addnewcentre.get('OpenHour').hasError('required')">
+                                        You must select a valid Time
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>  
+                            <div class="row">    
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Close Hour" type="time" formControlName="CloseHour">
+                                      <mat-error *ngIf="addnewcentre.get('CloseHour').hasError('required')">
+                                        You must select a valid Time
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>                                   
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" [disabled]="addnewcentre.invalid" (click)="addcentre()">Add New Centre</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,69 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Add New Parent</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="addnewparent">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="First Name" formControlName="FirstName">
+                                      <mat-error *ngIf="addnewparent.get('FirstName').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                    
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Last Name" type="text" formControlName="LastName">
+                                      <mat-error *ngIf="addnewparent.get('LastName').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div> 
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Relation" formControlName="Relation">
+                                      <mat-error *ngIf="addnewparent.get('Relation').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                    
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Phone" type="text" formControlName="Phone">
+                                      <mat-error *ngIf="addnewparent.get('Phone').hasError('required')">
+                                        You must enter a 10 digit number
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Email" type="email" formControlName="Email">
+                                      <mat-error *ngIf="addnewparent.get('Email').hasError('required')">
+                                        You must enter a valid Email
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>         
+                            <br>                                                     
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" [disabled]="addnewparent.invalid" (click)="addparent()">Add Parent</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

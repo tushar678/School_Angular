@@ -1,0 +1,82 @@
+
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Edit Teacher</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="editteacher">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="First Name" formControlName="FirstName">
+                                      <mat-error *ngIf="editteacher.get('FirstName').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">    
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Last Name" type="text" formControlName="LastName"> 
+                                      <mat-error *ngIf="editteacher.get('LastName').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>  
+                            <mat-slide-toggle color="primary" formControlName="Active">Manage Access</mat-slide-toggle>                       
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" [disabled]="editteacher.invalid" (click)="editteacherinfo()">Edit Teacher</button>
+                            <div class="clearfix"></div>
+                        </form>
+                        <br>
+
+                         <!-- ****** -->
+
+                         <div class="row">
+                            <div class="col-md-12">
+                                <div class="card">
+                                  <div class="card-header card-header-danger">
+                                    <h4 class="card-title ">Class List</h4>                      
+                                </div>
+                                    <div class="card-body">
+                                        <div class="table-responsive">
+                                            <table class="table">
+                                                <thead class=" text-primary">
+                                                    <th>
+                                                        Class Name
+                                                    </th>
+                                                    <th>
+                                                      <button mat-raised-button color="primary" (click)="createclassintable()">Create Class</button>
+                                                    </th>
+                                                </thead>
+                                                <tbody>
+                                                    <tr *ngFor = "let class of classData">
+                                                        <td>
+                                                            {{class.name}}
+                                                        </td>                                                    
+                                                        <td>
+                                                          <button mat-raised-button (click)="classeditintable(class.id)">Edit</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                                          <button mat-raised-button color="warn" (click)="classdeleteintable(class.id)">Remove</button>
+                                                        </td>
+                                                    </tr>                                  
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                </div>
+
+                          <!-- ****** -->
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

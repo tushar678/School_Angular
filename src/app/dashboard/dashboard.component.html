@@ -1,0 +1,53 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Schools Table</h4>                     
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        City
+                                    </th>
+                                    <th>
+                                        Zip Code
+                                    </th>
+                                    <th>
+                                      <button mat-raised-button color="primary" (click)="createschoolintable()">Create School</button>
+                                    </th>
+                              
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let school of schoolData">
+                                        <td>
+                                            {{school.name}}
+                                        </td>
+                                        <td>
+                                            {{school.city}}
+                                        </td>
+                                        <td>
+                                            {{school.zipCode}}
+                                        </td>
+                                        <td>
+                                          <button mat-raised-button (click)="schooleditintable(school.id)">Edit</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                          <button mat-raised-button color="warn" (click)="schooldeleteintable(school.id)">Remove</button>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div> 

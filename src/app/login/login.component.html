@@ -1,0 +1,42 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row" class="login-form-flex">
+            <div class="col-md-3">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title"><img src ="https://secureservercdn.net/198.71.233.109/2zm.dbb.myftpupload.com/wp-content/uploads/2019/07/logo-1.png" height="55" width="55">&nbsp; &nbsp; FIREWALL CENTRES</h4>
+                        <!-- <p class="card-category">Company Name</p> -->
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="loginform">
+                            <div class="row">                                                           
+                                <div class="col-md-10">
+                                   <mat-form-field class="example-full-width">
+                                     <input matInput placeholder="Username" formControlName="username">
+                                     <mat-error *ngIf="loginform.get('username').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>                              
+                            </div>
+                            <div class="row">
+                                <div class="col-md-10">
+                                  <mat-form-field class="example-full-width">
+                                    <input matInput placeholder="Password" type="password" formControlName="password">
+                                    <mat-error *ngIf="loginform.get('password').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                  </mat-form-field>                               
+                                </div>
+                            </div>   
+                            <br>                                                                             
+                            <button mat-raised-button class="btn btn-danger" (click)="login()" [disabled]="loginform.invalid">LOGIN</button>
+                            <br>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

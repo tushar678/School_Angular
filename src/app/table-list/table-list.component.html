@@ -1,0 +1,43 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Centre Table</h4>
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+                                      Centres
+                                  </th>
+                                  <th>
+                                      Operations
+                                  </th>
+                                  <th>
+                                    <button mat-raised-button color="primary" (click)="createcentreintable()">Create Centre</button>
+                                  </th>
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let centre of centreData">
+                                      <td>
+                                          {{centre.name}}
+                                      </td>
+                                      <td>
+                                          {{centre.openHour}}&nbsp;&nbsp;-&nbsp;&nbsp;{{centre.closeHour}}
+                                      </td>
+                                      <td>
+                                        <button mat-raised-button (click)="centreeditintable(centre.id)">Edit</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button mat-raised-button color="warn" (click)="centredeleteintable(centre.id)">Remove</button>
+                                      </td>
+                                  </tr>                                  
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+      </div>
+  </div>
+</div>

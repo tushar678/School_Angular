@@ -1,0 +1,115 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Edit Centre</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="editcentre">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Centre Name" formControlName="Name">
+                                      <mat-error *ngIf="editcentre.get('Name').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>
+                            <div class="row">    
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Open Hour" type="time" formControlName="OpenHour">
+                                      <mat-error *ngIf="editcentre.get('OpenHour').hasError('required')">
+                                        You must select a valid Time
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>  
+                            <div class="row">    
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Close Hour" type="time" formControlName="CloseHour">
+                                      <mat-error *ngIf="editcentre.get('CloseHour').hasError('required')">
+                                        You must select a valid Time
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                            </div>                                   
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" [disabled]="editcentre.invalid" (click)="editcentreinfo()">Edit Centre</button>
+                            <div class="clearfix"></div>
+                        </form>
+
+                        <!-- ****** -->
+                        <br>
+                        <div class="row">    
+                            <div class="col-md-5">
+                            <mat-form-field appearance="fill">
+                            <mat-label>Select School</mat-label>
+                            <mat-select [(ngModel)]="selectedValue">
+                              <mat-option *ngFor = "let school of SchoolData" [value]="school.id">
+                                {{school.name}}
+                              </mat-option>
+                            </mat-select>
+                            </mat-form-field>
+                            </div>
+                            &nbsp;&nbsp;&nbsp;
+                            <div class="col-md-3">
+                                <button mat-raised-button class="btn btn-primary pull-right" (click)="dropselect()">Add New School</button>
+                            </div>
+                        </div>
+                        <br>
+
+                            <!-- **** -->
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="card">
+                                      <div class="card-header card-header-danger">
+                                        <h4 class="card-title ">Schools</h4>                      
+                                    </div>
+                                        <div class="card-body">
+                                            <div class="table-responsive">
+                                                <table class="table">
+                                                    <thead class=" text-primary">
+                                                        <th>
+                                                            Name
+                                                        </th>
+                                                        <th>
+                                                            City
+                                                        </th>
+                                                        <th>
+                                                            Zip Code
+                                                        </th>                                                     
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr *ngFor = "let specific of SpecificData">
+                                                            <td>
+                                                                {{specific.name}}
+                                                            </td>
+                                                            <td>
+                                                                {{specific.city}}
+                                                            </td>  
+                                                            <td>
+                                                                {{specific.zipCode}}
+                                                            </td>   
+                                                            <td>    
+                                                                <button mat-raised-button color="warn" (click)="centreschoolremove(specific.id)">Remove</button>
+                                                              </td>                                                  
+                                                        </tr>                                  
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    </div>
+                                    <!-- **** -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

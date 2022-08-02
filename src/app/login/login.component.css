@@ -1,0 +1,16 @@
+.login-form-flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    padding-top: 10%;
+  }
+
+  .card {
+    height: 320px;
+  }
+
+  .card .card-body {
+    padding-top: 35px;
+  }
+  

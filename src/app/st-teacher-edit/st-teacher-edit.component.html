@@ -1,0 +1,43 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title">Edit Teacher</h4>
+                    </div>
+                    <div class="card-body">
+                        <form [formGroup]="editnewteacher">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="Teacher Name" formControlName="TeacherFullName">
+                                      <mat-error *ngIf="editnewteacher.get('TeacherFullName').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                    
+                            </div> 
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <mat-form-field class="example-full-width">
+                                      <input matInput placeholder="User Name" formControlName="UserName">
+                                      <mat-error *ngIf="editnewteacher.get('UserName').hasError('required')">
+                                        You must enter a value
+                                      </mat-error> 
+                                    </mat-form-field>
+                                </div>
+                    
+                            </div>       
+                            <br>                                                     
+                            <button mat-raised-button type="submit" class="btn btn-danger pull-right" [disabled]="editnewteacher.invalid" (click)="editteacher()">Edit Teacher</button>
+                            <div class="clearfix"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  

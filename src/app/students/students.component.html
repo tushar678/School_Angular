@@ -1,0 +1,77 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-danger">
+                        <h4 class="card-title ">Students Table</h4>                    
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                <thead class=" text-primary">
+                                    <th>
+                                        Full Name
+                                    </th>
+                                    <th>
+                                        Student ID
+                                    </th>
+                                    <th>
+                                        DOB
+                                    </th>
+                                    <th>
+                                        Grade
+                                    </th>
+                                    <th>
+                                        Status
+                                    </th>
+                                    <th>
+                                        Probation
+                                    </th>
+                                    <th>
+                                        Walk Home
+                                    </th>
+                                    <th>
+                                        <button mat-raised-button color="primary" (click)="createstudent()">Create Student</button>
+                                    </th>                              
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let student of studentData">
+                                        <td>
+                                            {{student.firstName}}&nbsp;&nbsp;{{student.lastName}}
+                                        </td>
+                                        <td>
+                                            {{student.studentId}}
+                                        </td>
+                                        <td>
+                                            {{student.dob}}
+                                        </td>
+                                        <td>
+                                            {{student.currentGrade}}
+                                        </td>
+                                        <td>
+                                            {{student.active}}
+                                        </td>
+                                        <td>
+                                            {{student.studentInProbation}}
+                                        </td>
+                                        <td>
+                                            {{student.allowedToWalkHome}}
+                                        </td>
+                                        <td>
+                                          <button mat-raised-button (click)="studentedit(student.id)">Edit</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                          <button mat-raised-button color="warn" (click)="studentremove(student.id)">Remove</button>
+                                        </td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+  </div>
+  

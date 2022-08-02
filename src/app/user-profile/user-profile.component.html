@@ -1,0 +1,52 @@
+<div class="main-content">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-12">
+              <div class="card">
+                  <div class="card-header card-header-danger">
+                      <h4 class="card-title ">Users Table</h4>                     
+                  </div>
+                  <div class="card-body">
+                      <div class="table-responsive">
+                          <table class="table">
+                              <thead class=" text-primary">
+                                  <th>
+                                      Name
+                                  </th>
+                                  <th>
+                                      Email
+                                  </th>
+                                  <th>
+                                      Phone
+                                  </th>
+                                  <th>
+                                    <button mat-raised-button color="primary" (click)="createuserintable()">Create User</button>
+                                  </th>                            
+                              </thead>
+                              <tbody>
+                                  <tr *ngFor="let user of userData">
+                                      <td>
+                                          {{user.firstname}}&nbsp;&nbsp;{{user.lastname}}
+                                      </td>
+                                      <td>
+                                          {{user.email}}
+                                      </td>
+                                      <td>
+                                          {{user.phone}}
+                                      </td>
+                                      <td>
+                                        <button mat-raised-button (click)="usereditintable(user.id)">Edit</button> &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <button mat-raised-button color="warn" (click)="userdeleteintable(user.id)">Remove</button>
+                                      </td>
+                                  </tr>
+                                  
+                              </tbody>
+                          </table>
+                      </div>
+                  </div>
+              </div>
+          </div>
+          
+      </div>
+  </div>
+</div>
