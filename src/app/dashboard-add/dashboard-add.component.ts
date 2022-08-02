@@ -27,6 +27,7 @@ export class DashboardAddComponent implements OnInit {
       console.log("Data Added",data);
     })
     location.reload();
+    
   }
 
   ngOnInit(): void {
