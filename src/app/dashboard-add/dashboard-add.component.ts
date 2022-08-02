@@ -21,6 +21,7 @@ export class DashboardAddComponent implements OnInit {
     zipCode: new FormControl('', [Validators.required])
   })
 
+  
   addschool(){
     console.log("Add School called on ",this.addnewschool.value);
     this.SchoolService.addSchool(this.addnewschool.value).subscribe((data: any)=> {
